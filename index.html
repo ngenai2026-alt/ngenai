@@ -38,6 +38,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -45,6 +46,7 @@
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
       overflow-x: hidden;
+      max-width: 100vw;
     }
 
     /* ── GRID BACKGROUND ── */
@@ -1159,6 +1161,8 @@
       #hero {
         padding: 6rem 1.2rem 3rem;
         min-height: auto;
+        width: 100%;
+        max-width: 100vw;
       }
 
       h1 {
@@ -1211,6 +1215,8 @@
         padding: 2rem 1.2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        max-width: 100vw;
+        width: 100%;
       }
 
       .stat-num {
@@ -1244,6 +1250,8 @@
       #workshops,
       #contact {
         padding: 3.5rem 1.2rem;
+        width: 100%;
+        max-width: 100vw;
       }
 
       .section-header {
@@ -1262,6 +1270,7 @@
       .services-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        max-width: 100%;
       }
 
       .service-card {
@@ -1338,6 +1347,8 @@
         text-align: center;
         padding: 2rem 1.2rem;
         gap: 1rem;
+        max-width: 100vw;
+        width: 100%;
       }
 
       .footer-links {
