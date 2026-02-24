@@ -1418,11 +1418,12 @@
     <div class="glow-orb orb1"></div>
     <div class="glow-orb orb2"></div>
 
-    <div class="badge">Available for Projects,Workshop</div>
+    <div class="badge">Made in INDIA</div>
 
     <h1>Build Smarter with<br><span class="highlight">Generative AI</span></h1>
 
-    <p class="hero-sub">Custom AI solutions — chatbots, automation, RAG pipelines, and LLM integrations — that actually
+    <p class="hero-sub">Custom AI solutions — chatbots, Agentic AI automation, RAG pipelines, and LLM integrations —
+      that actually
       work for your business.</p>
 
     <div class="hero-actions">
@@ -1805,9 +1806,15 @@
             <input type="text" name="company" placeholder="Acme Corp">
           </div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="raj@acmecorp.com" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="raj@acmecorp.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+91 98765 43210">
+          </div>
         </div>
         <div class="form-group">
           <label>What do you need?</label>
@@ -1925,7 +1932,7 @@
     reveals.forEach(el => observer.observe(el));
 
     // Form submit → Google Sheets
-    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwB5jId6KIx-y1dRxpmw1lyvrreF4syh8a8SlJLzVK48goQ1N8Ga_RBbr8pLB6cc0d36A/exec';
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzWa4kE87ApEEyJUyqvMpHiDpYAW2kYp_z_IxrBqlhynP89pvwuFC4nRrSzaWDgouMRYw/exec';
 
     async function handleSubmit(e) {
       e.preventDefault();
@@ -1937,6 +1944,7 @@
         name: form.querySelector('[name="name"]').value,
         company: form.querySelector('[name="company"]').value || 'N/A',
         email: form.querySelector('[name="email"]').value,
+        phone: form.querySelector('[name="phone"]').value || 'N/A',
         service: form.querySelector('[name="service"]').value,
         message: form.querySelector('[name="message"]').value
       };
