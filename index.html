@@ -1998,7 +1998,9 @@
       const data = {
         name: form.querySelector('[name="name"]').value,
         enquiry_type: form.querySelector('[name="enquiry_type"]').value,
-        company: form.querySelector('[name="company"]') ? (form.querySelector('[name="company"]').value || 'N/A') : 'N/A',
+        company: form.querySelector('[name="enquiry_type"]').value === 'Personal'
+          ? 'Personal'
+          : (form.querySelector('[name="company"]').value || 'N/A'),
         email: form.querySelector('[name="email"]').value,
         phone: form.querySelector('[name="phone"]').value || 'N/A',
         service: form.querySelector('[name="service"]').value,
