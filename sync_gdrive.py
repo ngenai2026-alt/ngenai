@@ -55,6 +55,20 @@ def main():
             json.dump({"folder_url": folder_url}, f, indent=2)
             
     dest_dir = "workshops_gallery"
+    if os.path.exists(dest_dir):
+        print(f"Cleaning {dest_dir} directory before syncing to remove deleted files...")
+        import shutil
+        for item in os.listdir(dest_dir):
+            item_path = os.path.join(dest_dir, item)
+            if item != "README.txt":
+                try:
+                    if os.path.isdir(item_path):
+                        shutil.rmtree(item_path)
+                    else:
+                        os.remove(item_path)
+                except Exception as e:
+                    print(f"Error cleaning {item}: {e}")
+                    
     os.makedirs(dest_dir, exist_ok=True)
     
     print("\nSyncing with Google Drive. Downloading new subfolders and images...")
