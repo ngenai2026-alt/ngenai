@@ -2,8 +2,8 @@ import os
 import json
 
 def generate_gallery_data():
-    gallery_dir = os.path.join("home", "workshops_gallery")
-    output_file = os.path.join("home", "gallery_data.js")
+    gallery_dir = "workshops_gallery"
+    output_file = "gallery_data.js"
     
     if not os.path.exists(gallery_dir):
         print(f"Directory {gallery_dir} does not exist.")

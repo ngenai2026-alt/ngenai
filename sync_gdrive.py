@@ -54,7 +54,7 @@ def main():
         with open(config_file, "w") as f:
             json.dump({"folder_url": folder_url}, f, indent=2)
             
-    dest_dir = os.path.join("home", "workshops_gallery")
+    dest_dir = "workshops_gallery"
     os.makedirs(dest_dir, exist_ok=True)
     
     print("\nSyncing with Google Drive. Downloading new subfolders and images...")
