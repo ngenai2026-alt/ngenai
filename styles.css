@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Mono:wght@400;700&family=Outfit:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
   --bg: #030712;
@@ -216,7 +216,7 @@ nav a.active {
 }
 
 h1 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 800;
   font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   line-height: 1.08;
@@ -699,7 +699,7 @@ h1 .highlight {
 }
 
 .stat-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
   color: #fff;
@@ -737,7 +737,7 @@ section {
 }
 
 .section-header h2 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -820,7 +820,7 @@ section {
 }
 
 .feature-card h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
@@ -893,7 +893,7 @@ section {
 }
 
 .step h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -951,7 +951,7 @@ section {
 }
 
 .pricing-card h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: var(--muted);
@@ -961,7 +961,7 @@ section {
 }
 
 .price {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 0.3rem;
@@ -1169,7 +1169,7 @@ section {
 }
 
 .cta-banner h2 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 2.2rem;
   margin-bottom: 1rem;
 }
