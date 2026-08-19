@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Process | NgenAI – From Brief to Production</title>
+  <meta name="description" content="Discover NgenAI's 4-step agile AI delivery process: Discovery Call, Proposal, Rapid Build, and Production Deployment & Support.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">N<span>gen</span>AI</a>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navMenu">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="process.html" class="active" onclick="closeMenu()">Process</a></li>
+      <li><a href="workshops.html" onclick="closeMenu()">Workshops</a></li>
+      <li><a href="contact.html" class="nav-cta" onclick="closeMenu()">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="glow-orb orb1"></div>
+      <div class="section-tag">How It Works</div>
+      <h1>Our Delivery <span class="highlight">Process</span></h1>
+      <p>A lean, transparent process. No surprises, no scope creep.</p>
+    </header>
+
+    <section>
+      <div class="process-steps" style="grid-template-columns: 1fr; max-width:800px; gap:2rem;">
+        <div class="step reveal" style="text-align:left; display:flex; gap:1.5rem; align-items:flex-start;">
+          <div class="step-num" style="font-size:1.5rem;">01</div>
+          <div>
+            <h3>Discovery Call (30 Mins)</h3>
+            <p style="margin-top:0.4rem; font-size:0.95rem;">We discuss your specific business challenge, existing technical stack, data format, and key performance indicators. This initial call is 100% free of charge.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" style="text-align:left; display:flex; gap:1.5rem; align-items:flex-start;">
+          <div class="step-num" style="font-size:1.5rem;">02</div>
+          <div>
+            <h3>Tailored Proposal & Project Scope</h3>
+            <p style="margin-top:0.4rem; font-size:0.95rem;">We send a clear technical architecture proposal, deliverable breakdown, milestone timeline, and project roadmap within 24 hours.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" style="text-align:left; display:flex; gap:1.5rem; align-items:flex-start;">
+          <div class="step-num" style="font-size:1.5rem;">03</div>
+          <div>
+            <h3>Rapid Development & Weekly Demos</h3>
+            <p style="margin-top:0.4rem; font-size:0.95rem;">We build in fast 1-week sprints with functional demos. You test progress at every stage, ensuring full alignment before production rollout.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" style="text-align:left; display:flex; gap:1.5rem; align-items:flex-start;">
+          <div class="step-num" style="font-size:1.5rem;">04</div>
+          <div>
+            <h3>Production Deployment & Support</h3>
+            <p style="margin-top:0.4rem; font-size:0.95rem;">Complete deployment to your cloud infrastructure with thorough API documentation, code handover, team training, and 30 days of included post-launch support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta-banner reveal">
+        <h2>Ready to take the first step?</h2>
+        <p>Book your 30-minute discovery call today to get started.</p>
+        <a href="contact.html" class="btn-primary">Schedule Discovery Call →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="index.html" class="logo" style="font-size:1.1rem; margin-bottom:0.3rem; display:block;">N<span>gen</span>AI</a>
+      <p>© 2026 Next GenerationAI, India</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="process.html">Process</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('nav-open');
+      document.getElementById('navMenu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    function closeMenu() {
+      document.querySelector('nav').classList.remove('nav-open');
+      document.getElementById('navMenu').classList.remove('open');
+      document.querySelector('.hamburger').classList.remove('active');
+    }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

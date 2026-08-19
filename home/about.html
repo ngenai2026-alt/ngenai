@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | NgenAI – Generative AI Studio</title>
+  <meta name="description" content="Learn about NgenAI, an AI development studio based in Pune specializing in custom RAG, LLM integrations, and Agentic AI solutions.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">N<span>gen</span>AI</a>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navMenu">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="about.html" class="active" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="workshops.html" onclick="closeMenu()">Workshops</a></li>
+      <li><a href="contact.html" class="nav-cta" onclick="closeMenu()">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <div class="glow-orb orb1"></div>
+      <div class="section-tag">Who We Are</div>
+      <h1>About <span class="highlight">NgenAI</span></h1>
+      <p>An AI development studio focused on building intelligent systems that actually work for modern businesses.</p>
+    </header>
+
+    <!-- CONTENT SECTION -->
+    <section>
+      <div class="grid-2">
+        <div class="reveal">
+          <h2>Building Next Generation AI for Enterprise</h2>
+          <p style="color:var(--muted); line-height:1.8; margin-top:1.2rem;">
+            Next Generation AI (NgenAI) is an AI development studio based in Hinjewadi, Pune. We focus on building advanced Retrieval-Augmented Generation (RAG) and Agentic AI systems for modern enterprises.
+          </p>
+          <p style="color:var(--muted); line-height:1.8; margin-top:1rem;">
+            We help organizations transform their internal data into intelligent, action-driven solutions that improve efficiency, decision-making, and scalability.
+          </p>
+          <p style="color:var(--muted); line-height:1.8; margin-top:1rem;">
+            Our expertise lies in designing custom AI agents, enterprise knowledge copilots, and workflow automation systems powered by robust RAG architectures.
+          </p>
+        </div>
+
+        <div class="reveal" style="display:flex; flex-direction:column; gap:1.2rem;">
+          <div class="feature-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+            <h3>Enterprise RAG Systems</h3>
+            <p>Architectures that query documents, PDFs, and databases accurately with zero hallucination.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3z"/></svg></div>
+            <h3>Agentic AI Workflows</h3>
+            <p>Autonomous AI agents that reason, plan, and execute multi-step business operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE PRINCIPLES -->
+    <section style="background:var(--surface);">
+      <div class="section-header reveal">
+        <div class="section-tag">Our Philosophy</div>
+        <h2>Why Businesses Choose NgenAI</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card reveal">
+          <h3>Production Ready</h3>
+          <p>We build production-grade, secure, and scalable AI applications instead of throwaway demo prototypes.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h3>Custom Architecture</h3>
+          <p>Modular, custom-built AI pipelines engineered around your unique business workflows, security model, and data environment.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h3>Seamless Integration</h3>
+          <p>Our solutions fit cleanly into existing stacks (FastAPI, React, Python, PostgreSQL, Vector DBs).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="cta-banner reveal">
+        <h2>Want to learn how AI can transform your operations?</h2>
+        <p>Book a free 30-minute consultation with our lead technical architect.</p>
+        <a href="contact.html" class="btn-primary">Book Consultation →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <a href="index.html" class="logo" style="font-size:1.1rem; margin-bottom:0.3rem; display:block;">N<span>gen</span>AI</a>
+      <p>© 2026 Next GenerationAI, India</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="process.html">Process</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('nav-open');
+      document.getElementById('navMenu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    function closeMenu() {
+      document.querySelector('nav').classList.remove('nav-open');
+      document.getElementById('navMenu').classList.remove('open');
+      document.querySelector('.hamburger').classList.remove('active');
+    }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Python Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python Caches & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build and temporary files
+*.log
+tmp/
+temp/
+backup/

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | NgenAI – Custom Generative AI Solutions</title>
+  <meta name="description" content="Explore custom AI services by NgenAI: RAG systems, Document AI, Agentic automation, custom chatbots, LLM fine-tuning, and APIs.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">N<span>gen</span>AI</a>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navMenu">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" class="active" onclick="closeMenu()">Services</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="workshops.html" onclick="closeMenu()">Workshops</a></li>
+      <li><a href="contact.html" class="nav-cta" onclick="closeMenu()">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="glow-orb orb1"></div>
+      <div class="section-tag">What We Build & Integrate</div>
+      <h1>Agentic AI & <span class="highlight">Enterprise Integration</span> Services</h1>
+      <p>From autonomous multi-agent workflows to custom RAG pipelines and enterprise tool integration — production-grade AI systems tailored to your business.</p>
+    </header>
+
+    <!-- AGENTIC AI AUTOMATION SPOTLIGHT SECTION -->
+    <section style="background: rgba(0, 240, 255, 0.02); border-bottom: 1px solid var(--border);">
+      <div class="section-header reveal">
+        <div class="section-tag">Core Specialization</div>
+        <h2>Agentic AI Automation & Seamless Integration</h2>
+        <p>We build autonomous, goal-oriented AI agents that connect directly to your existing tools, databases, and APIs to execute complex multi-step workflows without manual intervention.</p>
+      </div>
+
+      <div class="grid-2" style="align-items: center; gap: 2.5rem;">
+        <div class="reveal">
+          <h3 style="font-family:'Syne',sans-serif; font-size:1.6rem; color:#fff; margin-bottom:1rem;">
+            Empower Your Business With Autonomous Multi-Agent Workflows
+          </h3>
+          <p style="color:var(--muted); line-height:1.8; margin-bottom:1.2rem;">
+            Standard chatbots only respond to text. Our <b>Agentic AI Solutions</b> combine reasoning, planning, memory, and direct tool execution so AI can autonomously handle complex operations.
+          </p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.8rem; color:var(--text); font-size:0.95rem;">
+            <li style="display:flex; align-items:center; gap:0.6rem;"><span style="color:var(--accent); font-weight:bold;">⚡</span> <b>Multi-Agent Orchestration</b> — Autonomous coordination using LangGraph, CrewAI, AutoGen & custom state machines.</li>
+            <li style="display:flex; align-items:center; gap:0.6rem;"><span style="color:var(--accent); font-weight:bold;">🔌</span> <b>Enterprise API Integrations</b> — Connect agents to CRMs, SQL/NoSQL DBs, REST APIs, Webhooks, and ERP systems.</li>
+            <li style="display:flex; align-items:center; gap:0.6rem;"><span style="color:var(--accent); font-weight:bold;">🛠️</span> <b>Developer & CLI Tool Integration</b> — Harness Claude Code, Snowflake Cortex Code, and custom LLM CLI automation bots.</li>
+            <li style="display:flex; align-items:center; gap:0.6rem;"><span style="color:var(--accent); font-weight:bold;">🛡️</span> <b>Human-in-the-Loop Governance</b> — Built-in review checkpoints, step-by-step logs, and granular security permissions.</li>
+          </ul>
+        </div>
+
+        <div class="feature-card reveal" style="background: rgba(8, 14, 28, 0.95); border: 1px solid var(--accent); box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);">
+          <div style="font-family:'Space Mono',monospace; font-size:0.75rem; color:var(--accent); margin-bottom:0.8rem; letter-spacing:0.1em; text-transform:uppercase;">
+            // AGENTIC ARCHITECTURE WORKFLOW
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.8rem; font-family:'Space Mono',monospace; font-size:0.82rem;">
+            <div style="background:rgba(0,240,255,0.08); padding:0.8rem; border-radius:6px; border-left:3px solid var(--accent);">
+              <b style="color:#fff;">1. Trigger / Input:</b> Customer inquiry, webhook, email, or scheduled cron job.
+            </div>
+            <div style="background:rgba(124,106,255,0.08); padding:0.8rem; border-radius:6px; border-left:3px solid var(--accent2);">
+              <b style="color:#fff;">2. Reasoning & Planning:</b> Agentic LLM breaks down goal into multi-step execution tasks.
+            </div>
+            <div style="background:rgba(0,240,255,0.08); padding:0.8rem; border-radius:6px; border-left:3px solid var(--accent);">
+              <b style="color:#fff;">3. Tool Calling & API Action:</b> Queries SQL DB, updates CRM, executes code, generates report.
+            </div>
+            <div style="background:rgba(255,184,0,0.08); padding:0.8rem; border-radius:6px; border-left:3px solid var(--gold);">
+              <b style="color:#fff;">4. Output & Verification:</b> Returns structured result with full logs & optional supervisor approval.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALL SERVICES GRID -->
+    <section>
+      <div class="section-header reveal">
+        <div class="section-tag">Comprehensive Offerings</div>
+        <h2>Our AI Engineering & Integration Services</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card reveal" id="agentic-automation">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div>
+          <h3>Agentic AI Automation & Multi-Agent Systems</h3>
+          <p>Deploy autonomous AI agents that plan, reason, call external APIs, read data, and execute complex multi-step enterprise workflows end-to-end.</p>
+        </div>
+
+        <div class="feature-card reveal" id="tool-integration">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+          <h3>Claude Code, Cortex & Developer Tool Integration</h3>
+          <p>Integrate Claude Code, Snowflake Cortex AI, custom CLI assistants, and IDE plugins into your engineering pipelines and microservices.</p>
+        </div>
+
+        <div class="feature-card reveal" id="rag">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg></div>
+          <h3>RAG & Document Intelligence</h3>
+          <p>Retrieval-Augmented Generation systems enabling precise search and context extraction across company PDFs, database tables, and knowledge bases.</p>
+        </div>
+
+        <div class="feature-card reveal" id="chatbots">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3z"/></svg></div>
+          <h3>Custom Conversational AI Chatbots</h3>
+          <p>Build domain-aware chat agents for customer support, lead capturing, and internal helpdesks with custom voice/text UI integrations.</p>
+        </div>
+
+        <div class="feature-card reveal" id="finetuning">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2z"/></svg></div>
+          <h3>LLM Fine-tuning & Domain Adaptation</h3>
+          <p>Fine-tune open-source & proprietary LLMs (Llama 3, Qwen, Mistral) on custom industry datasets for specialized legal, healthcare, or financial logic.</p>
+        </div>
+
+        <div class="feature-card reveal" id="consulting">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89L2 10.69l4.05-4.05c.47-.47 1.15-.68 1.81-.55l1.33.26z"/></svg></div>
+          <h3>AI Architecture & Strategy Consulting</h3>
+          <p>Technical feasibility audits, system architecture design, benchmark evaluations, and PoC planning for startups and enterprises.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta-banner reveal">
+        <h2>Need Agentic AI Automation or Custom Tool Integration?</h2>
+        <p>Share your workflow requirements with us and get a technical proposal within 24 hours.</p>
+        <a href="contact.html" class="btn-primary">Talk to an Architect →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="index.html" class="logo" style="font-size:1.1rem; margin-bottom:0.3rem; display:block;">N<span>gen</span>AI</a>
+      <p>© 2026 Next GenerationAI, India</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="process.html">Process</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ATTENTION-GRABBING FLOATING CHATBOT BUTTON -->
+  <div class="floating-chat-btn" id="floatingChatWidget" onclick="toggleKaniChat()" title="Click to Talk with Kani AI">
+    <div class="chat-tooltip-badge">💬 Ask Kani AI!</div>
+    <div class="floating-chat-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+    </div>
+    <div class="floating-chat-text">
+      <span class="floating-chat-title">Kani AI Assistant</span>
+      <span class="floating-chat-status">Ask Anything • Click to Chat</span>
+    </div>
+  </div>
+
+  <!-- POP-UP FLOATING CHAT OVERLAY WINDOW -->
+  <div class="floating-chat-window" id="floatingChatWindow">
+    <div class="window-header">
+      <div class="window-title">
+        <div class="window-mini-hud">KANI</div>
+        <div>
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:#fff;">Kani AI Assistant</div>
+          <div style="font-family:'Space Mono',monospace; font-size:0.68rem; color:var(--accent);"><span class="pulse-dot"></span> Online · Ready to Talk</div>
+        </div>
+      </div>
+      <button class="window-close-btn" onclick="toggleKaniChat()" aria-label="Close Chat">✕</button>
+    </div>
+
+    <div class="chat-card-body" id="popupChatBody">
+      <div class="chat-message bot-msg">
+        <div class="msg-bubble">
+          <b>[K.A.N.I // ONLINE]</b><br>Greetings User. I am Kani, your NgenAI Intelligent Assistant. How can I help you with our services today?
+        </div>
+      </div>
+      <div class="chat-chips" id="popupChatChips">
+        <button class="chip-btn" onclick="sendPopupQuickPrompt('What AI services do you offer?')">⚡ AI Services</button>
+        <button class="chip-btn" onclick="sendPopupQuickPrompt('Tell me about RAG Pipelines')">📄 RAG Pipelines</button>
+        <button class="chip-btn" onclick="sendPopupQuickPrompt('Do you help with M.Tech & PhD projects?')">🎓 PhD & M.Tech</button>
+        <button class="chip-btn" onclick="sendPopupQuickPrompt('How do I contact NgenAI?')">📞 Contact Kani</button>
+      </div>
+    </div>
+
+    <div class="chat-card-input">
+      <input type="text" id="popupChatInput" placeholder="Ask Kani AI anything..." onkeypress="handlePopupKeyPress(event)">
+      <button class="chat-send-btn" onclick="sendPopupMessage()" aria-label="Send">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('nav-open');
+      document.getElementById('navMenu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    function closeMenu() {
+      document.querySelector('nav').classList.remove('nav-open');
+      document.getElementById('navMenu').classList.remove('open');
+      document.querySelector('.hamburger').classList.remove('active');
+    }
+    function toggleKaniChat() {
+      const win = document.getElementById('floatingChatWindow');
+      win.classList.toggle('active');
+      if (win.classList.contains('active')) {
+        setTimeout(() => {
+          const input = document.getElementById('popupChatInput');
+          if (input) input.focus();
+        }, 100);
+      }
+    }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    function sendPopupQuickPrompt(promptText) {
+      document.getElementById('popupChatInput').value = promptText;
+      sendPopupMessage();
+    }
+    function handlePopupKeyPress(e) {
+      if (e.key === 'Enter') sendPopupMessage();
+    }
+    function sendPopupMessage() {
+      const input = document.getElementById('popupChatInput');
+      const query = input.value.trim();
+      if (!query) return;
+
+      const chatBody = document.getElementById('popupChatBody');
+      const chips = document.getElementById('popupChatChips');
+      if (chips) chips.remove();
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'chat-message user-msg';
+      userDiv.innerHTML = `<div class="msg-bubble">${escapeHTML(query)}</div>`;
+      chatBody.appendChild(userDiv);
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'chat-message bot-msg';
+      typingDiv.innerHTML = `<div class="msg-bubble" style="font-style:italic; color:var(--muted);">Kani is thinking...</div>`;
+      chatBody.appendChild(typingDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      setTimeout(() => {
+        typingDiv.remove();
+        const botDiv = document.createElement('div');
+        botDiv.className = 'chat-message bot-msg';
+        botDiv.innerHTML = `<div class="msg-bubble">${getBotResponse(query)}</div>`;
+        chatBody.appendChild(botDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 600);
+    }
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+    }
+    function getBotResponse(q) {
+      const lower = q.toLowerCase();
+      if (lower.includes('service') || lower.includes('offer') || lower.includes('build')) {
+        return "<b>[KANI]</b> We build <b>Custom AI Chatbots</b>, <b>RAG Document Systems</b>, <b>Claude Code & Cortex Integration</b>, and <b>Agentic Workflows</b> tailored to your business!";
+      } else if (lower.includes('rag') || lower.includes('document')) {
+        return "<b>[KANI]</b> Our RAG systems allow you to query your private PDFs, manuals, and SQL databases with zero hallucination & precise citations.";
+      } else if (lower.includes('phd') || lower.includes('m.tech') || lower.includes('me') || lower.includes('academic') || lower.includes('research')) {
+        return "<b>[KANI]</b> Yes! We specialize in PhD research implementation, M.E./M.Tech projects, thesis RAG systems, and custom AI paper implementations.";
+      } else if (lower.includes('workshop') || lower.includes('training')) {
+        return "<b>[KANI]</b> We conduct hands-on online & corporate on-site workshops on Prompt Engineering, Agentic AI, and Production LLM architectures.";
+      } else if (lower.includes('contact') || lower.includes('hire') || lower.includes('call') || lower.includes('price')) {
+        return "<b>[KANI]</b> You can reach us directly on WhatsApp at <b>+91 73876 76043</b> or fill out our <a href='contact.html' style='color:var(--accent); font-weight:bold;'>Contact Form →</a>";
+      } else {
+        return "<b>[KANI]</b> Great question! NgenAI specializes in custom Generative AI, RAG pipelines, and Agentic automation. <a href='contact.html' style='color:var(--accent); font-weight:bold;'>Get in touch with our lead architect →</a>";
+      }
+    }
+  </script>
+</body>
+</html>
