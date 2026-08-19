@@ -6,7 +6,7 @@ import json
 # ==============================================================================
 # CONFIGURATION: Paste your public Google Drive folder link here
 # If left empty, the script will prompt you for the link and save it in a config file.
-FOLDER_URL = "https://drive.google.com/drive/folders/1QO60p_quamH0m5oRphwdnHhg8aOwRvif?usp=drive_link"
+FOLDER_URL = "https://drive.google.com/drive/folders/1U-garCevPHcPXjq5km_uibA7E07KkpMZ?usp=sharing"
 # ==============================================================================
 
 def install_and_import(package):

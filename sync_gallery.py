@@ -18,8 +18,42 @@ def generate_gallery_data():
             # Scan images inside subfolder
             images = []
             for file in sorted(os.listdir(item_path)):
-                if file.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.gif')):
+                lower_file = file.lower()
+                if lower_file.endswith(('.png', '.jpg', '.jpeg', '.webp', '.gif')):
                     images.append(file)
+                elif lower_file.endswith('.heic'):
+                    heic_path = os.path.join(item_path, file)
+                    jpg_filename = file[:-5] + ".jpg"
+                    jpg_path = os.path.join(item_path, jpg_filename)
+                    if not os.path.exists(jpg_path):
+                        print(f"Converting {file} to JPEG for browser compatibility...")
+                        try:
+                            try:
+                                import pillow_heif
+                                from PIL import Image
+                            except ImportError:
+                                import subprocess
+                                import sys
+                                print("Installing pillow-heif and pillow for HEIC support...")
+                                subprocess.check_call([sys.executable, "-m", "pip", "install", "pillow-heif", "pillow"])
+                                import pillow_heif
+                                from PIL import Image
+                            
+                            heif_file = pillow_heif.read_heif(heic_path)
+                            image = Image.frombytes(
+                                heif_file.mode,
+                                heif_file.size,
+                                heif_file.data,
+                                "raw",
+                            )
+                            image.save(jpg_path, "JPEG", quality=90)
+                            print(f"Successfully converted {file} -> {jpg_filename}")
+                        except Exception as e:
+                            print(f"Failed to convert {file}: {e}")
+                            continue
+                    
+                    if os.path.exists(jpg_path):
+                        images.append(jpg_filename)
             
             if images:
                 for img in images:

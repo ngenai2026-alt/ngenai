@@ -29,3 +29,7 @@ Desktop.ini
 tmp/
 temp/
 backup/
+
+# Raw Mobile Images
+*.heic
+*.HEIC
