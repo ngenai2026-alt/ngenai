@@ -140,7 +140,7 @@
     </div>
     <div class="floating-chat-text">
       <span class="floating-chat-title">Kani AI Assistant</span>
-      <span class="floating-chat-status" style="color:var(--gold);">Coming Soon</span>
+      <span class="floating-chat-status" style="color:#00c97a;">● Online</span>
     </div>
   </div>
 
@@ -151,7 +151,7 @@
         <div class="window-mini-hud">KANI</div>
         <div>
           <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:#fff;">Kani AI Assistant</div>
-          <div style="font-family:'Space Mono',monospace; font-size:0.68rem; color:var(--gold);"><span class="pulse-dot" style="background:var(--gold); box-shadow:0 0 8px var(--gold);"></span> Coming Soon</div>
+          <div style="font-family:'Space Mono',monospace; font-size:0.68rem; color:#00c97a;"><span class="pulse-dot" style="background:#00c97a; box-shadow:0 0 8px #00c97a;"></span> Online</div>
         </div>
       </div>
       <button class="window-close-btn" onclick="toggleKaniChat()" aria-label="Close Chat">✕</button>
@@ -160,7 +160,7 @@
     <div class="chat-card-body" id="popupChatBody">
       <div class="chat-message bot-msg">
         <div class="msg-bubble">
-          <b>[K.A.N.I // OFFLINE]</b><br>Greetings User. I am Kani, your NgenAI Intelligent Assistant. I am currently under development and will be launching soon! Feel free to explore our services or contact us directly on WhatsApp.
+          <b>[KANI]</b><br>Hello! I am Kani, your NgenAI Intelligent Assistant. How can I help you today?
         </div>
       </div>
       <div class="chat-chips" id="popupChatChips">
@@ -219,49 +219,7 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Interactive Kani Hero Chat
-    function sendQuickPrompt(promptText) {
-      document.getElementById('heroChatInput').value = promptText;
-      sendHeroMessage();
-    }
-
-    function handleChatKeyPress(e) {
-      if (e.key === 'Enter') {
-        sendHeroMessage();
-      }
-    }
-
-    function sendHeroMessage() {
-      const input = document.getElementById('heroChatInput');
-      const query = input.value.trim();
-      if (!query) return;
-
-      const chatBody = document.getElementById('heroChatBody');
-      const chips = document.getElementById('heroChatChips');
-      if (chips) chips.remove();
-
-      const userDiv = document.createElement('div');
-      userDiv.className = 'chat-message user-msg';
-      userDiv.innerHTML = `<div class="msg-bubble">${escapeHTML(query)}</div>`;
-      chatBody.appendChild(userDiv);
-      input.value = '';
-      chatBody.scrollTop = chatBody.scrollHeight;
-
-      const typingDiv = document.createElement('div');
-      typingDiv.className = 'chat-message bot-msg';
-      typingDiv.innerHTML = `<div class="msg-bubble" style="font-style:italic; color:var(--muted);">Kani is thinking...</div>`;
-      chatBody.appendChild(typingDiv);
-      chatBody.scrollTop = chatBody.scrollHeight;
-
-      setTimeout(() => {
-        typingDiv.remove();
-        const botDiv = document.createElement('div');
-        botDiv.className = 'chat-message bot-msg';
-        botDiv.innerHTML = `<div class="msg-bubble">${getBotResponse(query)}</div>`;
-        chatBody.appendChild(botDiv);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, 600);
-    }
+    let chatMessages = [];
 
     // Interactive Kani Popup Window Chat
     function sendPopupQuickPrompt(promptText) {
@@ -275,7 +233,7 @@
       }
     }
 
-    function sendPopupMessage() {
+    async function sendPopupMessage() {
       const input = document.getElementById('popupChatInput');
       const query = input.value.trim();
       if (!query) return;
@@ -288,47 +246,60 @@
       userDiv.className = 'chat-message user-msg';
       userDiv.innerHTML = `<div class="msg-bubble">${escapeHTML(query)}</div>`;
       chatBody.appendChild(userDiv);
+      
+      chatMessages.push({ role: 'user', content: query });
       input.value = '';
       chatBody.scrollTop = chatBody.scrollHeight;
 
       const typingDiv = document.createElement('div');
       typingDiv.className = 'chat-message bot-msg';
-      typingDiv.innerHTML = `<div class="msg-bubble" style="font-style:italic; color:var(--muted);">Kani is thinking...</div>`;
+      typingDiv.innerHTML = `<div class="msg-bubble" style="font-style:italic; color:var(--muted);">Kani is typing...</div>`;
+      typingDiv.id = 'typingIndicator';
       chatBody.appendChild(typingDiv);
       chatBody.scrollTop = chatBody.scrollHeight;
 
-      setTimeout(() => {
-        typingDiv.remove();
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: chatMessages })
+        });
+        
+        const data = await res.json();
+        
+        document.getElementById('typingIndicator').remove();
+        
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
+        const botReply = data.message.content;
+        chatMessages.push(data.message);
+
         const botDiv = document.createElement('div');
         botDiv.className = 'chat-message bot-msg';
-        botDiv.innerHTML = `<div class="msg-bubble">${getBotResponse(query)}</div>`;
+        
+        // Format bold tags nicely, maybe convert markdown to simple HTML bold.
+        const formattedReply = botReply.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+
+        botDiv.innerHTML = `<div class="msg-bubble"><b>[KANI]</b><br>${formattedReply}</div>`;
         chatBody.appendChild(botDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
-      }, 600);
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('typingIndicator').remove();
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'chat-message bot-msg';
+        errorDiv.innerHTML = `<div class="msg-bubble" style="color:#ff4444;">Error connecting to Kani API.</div>`;
+        chatBody.appendChild(errorDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
     }
 
     function escapeHTML(str) {
       return str.replace(/[&<>'"]/g, 
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
-    }
-
-    function getBotResponse(q) {
-      const lower = q.toLowerCase();
-      if (lower.includes('agent') || lower.includes('automation') || lower.includes('integration') || lower.includes('workflow') || lower.includes('tool')) {
-        return "<b>[KANI]</b> We specialize in <b>Agentic AI Automation & Enterprise Integrations</b>! We build multi-agent workflows (LangGraph, CrewAI, AutoGen) connecting directly to your APIs, CRMs, SQL DBs & developer tools for autonomous task execution.";
-      } else if (lower.includes('service') || lower.includes('offer') || lower.includes('build')) {
-        return "<b>[KANI]</b> We build <b>Agentic AI Automation Systems</b>, <b>Custom AI Chatbots</b>, <b>RAG Document Pipelines</b>, and <b>Claude Code / Cortex Integrations</b> tailored to your business!";
-      } else if (lower.includes('rag') || lower.includes('document')) {
-        return "<b>[KANI]</b> Our RAG systems allow you to query your private PDFs, manuals, and SQL databases with zero hallucination & precise citations.";
-      } else if (lower.includes('phd') || lower.includes('m.tech') || lower.includes('me') || lower.includes('academic') || lower.includes('research')) {
-        return "<b>[KANI]</b> Yes! We specialize in PhD research implementation, M.E./M.Tech projects, thesis RAG systems, and custom AI paper implementations.";
-      } else if (lower.includes('workshop') || lower.includes('training')) {
-        return "<b>[KANI]</b> We conduct hands-on online & corporate on-site workshops on Prompt Engineering, Agentic AI, and Production LLM architectures.";
-      } else if (lower.includes('contact') || lower.includes('hire') || lower.includes('call') || lower.includes('price')) {
-        return "<b>[KANI]</b> You can reach us directly on WhatsApp at <b>+91 73876 76043</b> or fill out our <a href='contact.html' style='color:var(--accent); font-weight:bold;'>Contact Form →</a>";
-      } else {
-        return "<b>[KANI]</b> Great question! NgenAI specializes in custom Generative AI, Agentic AI automation, and enterprise tool integrations. <a href='contact.html' style='color:var(--accent); font-weight:bold;'>Get in touch with our lead architect →</a>";
-      }
     }
   </script>
 </body>
