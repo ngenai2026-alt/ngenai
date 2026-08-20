@@ -31,7 +31,7 @@ class handler(BaseHTTPRequestHandler):
                 "type": "function",
                 "function": {
                     "name": "book_appointment",
-                    "description": "Book a consultation appointment by submitting the user contact details.",
+                    "description": "DO NOT call this tool until the user has explicitly provided their name, email, phone number, and project description, and agreed to book.",
                     "parameters": {
                         "type": "object",
                         "properties": {
