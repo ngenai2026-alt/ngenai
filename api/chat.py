@@ -20,10 +20,14 @@ class handler(BaseHTTPRequestHandler):
                 return
 
             messages = req_body.get('messages', [])
+            context = req_body.get('context', '')
             
             prompt_path = os.path.join(os.path.dirname(__file__), "prompt.txt")
             with open(prompt_path, "r", encoding="utf-8") as f:
                 system_prompt = f.read()
+                
+            if context:
+                system_prompt += f"\n\nCURRENT CONTEXT: The user is currently viewing the page: '{context}'. If appropriate, tailor your greeting or pitch to this context."
             
             full_messages = [{"role": "system", "content": system_prompt}] + messages
             
@@ -38,9 +42,10 @@ class handler(BaseHTTPRequestHandler):
                             "name": {"type": "string", "description": "The user full name"},
                             "email": {"type": "string", "description": "The user email address"},
                             "phone": {"type": "string", "description": "The user phone number"},
+                            "preferred_time": {"type": "string", "description": "Preferred time or day for the appointment"},
                             "message": {"type": "string", "description": "A brief description of their project or requirement"}
                         },
-                        "required": ["name", "email", "phone", "message"]
+                        "required": ["name", "email", "phone", "preferred_time", "message"]
                     }
                 }
             }]
@@ -75,14 +80,28 @@ class handler(BaseHTTPRequestHandler):
                 if tool_call['function']['name'] == 'book_appointment':
                     args = json.loads(tool_call['function']['arguments'])
                     
+                    email_address = args.get("email", "")
+                    import re
+                    email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+                    if not re.match(email_pattern, email_address):
+                        res_message = {
+                            "role": "assistant",
+                            "content": f"The email address '{email_address}' looks invalid. Could you please provide a valid email?"
+                        }
+                        self.send_response(200)
+                        self.send_header('Content-Type', 'application/json')
+                        self.end_headers()
+                        self.wfile.write(json.dumps({"message": res_message}).encode('utf-8'))
+                        return
+                    
                     sheet_data = {
                         "name": args.get("name", ""),
                         "enquiry_type": "Company",
                         "company": "N/A",
-                        "email": args.get("email", ""),
+                        "email": email_address,
                         "phone": args.get("phone", ""),
                         "service": "AI Chatbot Booking",
-                        "message": args.get("message", "")
+                        "message": f"[{args.get('preferred_time', 'Anytime')}] " + args.get("message", "")
                     }
                     
                     try:

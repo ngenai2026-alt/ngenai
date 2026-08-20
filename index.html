@@ -262,7 +262,10 @@
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: chatMessages })
+          body: JSON.stringify({ 
+            messages: chatMessages,
+            context: window.location.pathname
+          })
         });
         
         const data = await res.json();
@@ -279,8 +282,16 @@
         const botDiv = document.createElement('div');
         botDiv.className = 'chat-message bot-msg';
         
-        // Format bold tags nicely, maybe convert markdown to simple HTML bold.
-        const formattedReply = botReply.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+        // Simple markdown parser
+        function parseMarkdown(text) {
+          return text
+            .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // bold
+            .replace(/\*(.*?)\*/g, '<i>$1</i>')   // italic
+            .replace(/\n- (.*?)(?=\n|$)/g, '<br>• $1') // bullet points
+            .replace(/\n/g, '<br>'); // newlines
+        }
+        
+        const formattedReply = parseMarkdown(botReply);
 
         botDiv.innerHTML = `<div class="msg-bubble"><b>[KANI]</b><br>${formattedReply}</div>`;
         chatBody.appendChild(botDiv);
