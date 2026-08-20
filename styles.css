@@ -441,8 +441,7 @@ h1 .highlight {
 
 .chat-card-body {
   padding: 1.1rem;
-  min-height: 180px;
-  max-height: 260px;
+  flex: 1;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
