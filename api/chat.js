@@ -56,7 +56,7 @@ Do NOT call the tool if you are missing their name, email, or phone. Ask them fo
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'gpt-oss-120b',
+        model: 'gpt-oss-20b',
         messages: fullMessages,
         tools: tools,
         tool_choice: 'auto'
