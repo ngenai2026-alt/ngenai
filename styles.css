@@ -112,7 +112,8 @@ nav a {
   transition: color .2s, text-shadow .2s;
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   color: var(--accent);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
@@ -211,8 +212,15 @@ nav a.active {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 h1 {
@@ -265,8 +273,15 @@ h1 .highlight {
 }
 
 @keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .jarvis-hud-container {
@@ -379,30 +394,73 @@ h1 .highlight {
   animation: waveBar 1s ease-in-out infinite alternate;
 }
 
-.jarvis-wave span:nth-child(1) { animation-delay: 0.1s; height: 35%; }
-.jarvis-wave span:nth-child(2) { animation-delay: 0.3s; height: 95%; }
-.jarvis-wave span:nth-child(3) { animation-delay: 0.15s; height: 60%; }
-.jarvis-wave span:nth-child(4) { animation-delay: 0.4s; height: 85%; }
-.jarvis-wave span:nth-child(5) { animation-delay: 0.25s; height: 45%; }
+.jarvis-wave span:nth-child(1) {
+  animation-delay: 0.1s;
+  height: 35%;
+}
+
+.jarvis-wave span:nth-child(2) {
+  animation-delay: 0.3s;
+  height: 95%;
+}
+
+.jarvis-wave span:nth-child(3) {
+  animation-delay: 0.15s;
+  height: 60%;
+}
+
+.jarvis-wave span:nth-child(4) {
+  animation-delay: 0.4s;
+  height: 85%;
+}
+
+.jarvis-wave span:nth-child(5) {
+  animation-delay: 0.25s;
+  height: 45%;
+}
 
 @keyframes rotateClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotateCounterClockwise {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes jarvisPulse {
-  0% { transform: scale(0.96); opacity: 0.6; box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
-  100% { transform: scale(1.04); opacity: 1; box-shadow: 0 0 35px rgba(0, 240, 255, 0.6); }
+  0% {
+    transform: scale(0.96);
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  }
+
+  100% {
+    transform: scale(1.04);
+    opacity: 1;
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);
+  }
 }
 
 @keyframes coreGlow {
-  0% { filter: drop-shadow(0 0 8px #00f0ff); }
-  100% { filter: drop-shadow(0 0 20px #00f0ff) drop-shadow(0 0 35px #7c6aff); }
+  0% {
+    filter: drop-shadow(0 0 8px #00f0ff);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 20px #00f0ff) drop-shadow(0 0 35px #7c6aff);
+  }
 }
 
 .jarvis-chat-header {
@@ -435,8 +493,16 @@ h1 .highlight {
 }
 
 @keyframes waveBar {
-  0% { transform: scaleY(0.3); opacity: 0.5; }
-  100% { transform: scaleY(1); opacity: 1; filter: drop-shadow(0 0 4px var(--accent)); }
+  0% {
+    transform: scaleY(0.3);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--accent));
+  }
 }
 
 .chat-card-body {
@@ -681,8 +747,13 @@ h1 .highlight {
 }
 
 @keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── STATS ── */
@@ -1263,6 +1334,7 @@ footer p {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1366,7 +1438,8 @@ footer p {
     font-size: 1rem !important;
   }
 
-  .hero-section, .page-header {
+  .hero-section,
+  .page-header {
     padding: 6rem 1.2rem 3rem;
   }
 
@@ -1393,7 +1466,8 @@ footer p {
     padding: 2rem 1.2rem;
   }
 
-  .footer-links, .social-icons {
+  .footer-links,
+  .social-icons {
     justify-content: center;
   }
 }
@@ -1429,12 +1503,10 @@ footer p {
   width: 100%;
   height: 100%;
   border-radius: 100px;
-  background: linear-gradient(
-    to left,
-    rgba(0, 168, 204, 1) 0%,
-    rgba(58, 12, 163, 1) 50%,
-    rgba(0, 168, 204, 1) 100%
-  );
+  background: linear-gradient(to left,
+      rgba(0, 168, 204, 1) 0%,
+      rgba(58, 12, 163, 1) 50%,
+      rgba(0, 168, 204, 1) 100%);
   transform: translateY(2px);
   transition: background 600ms;
 }
@@ -1467,8 +1539,15 @@ footer p {
 }
 
 @keyframes floatIcon {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-2px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-2px) scale(1.05);
+  }
 }
 
 .btn-ai-assistant-hero-3d:hover .btn-3d-front {
@@ -1486,12 +1565,10 @@ footer p {
 }
 
 .btn-ai-assistant-hero-3d:hover .btn-3d-edge {
-  background: linear-gradient(
-    to left,
-    rgba(0, 240, 255, 1) 0%,
-    rgba(124, 106, 255, 1) 50%,
-    rgba(0, 240, 255, 1) 100%
-  );
+  background: linear-gradient(to left,
+      rgba(0, 240, 255, 1) 0%,
+      rgba(124, 106, 255, 1) 50%,
+      rgba(0, 240, 255, 1) 100%);
 }
 
 .btn-ai-assistant-hero-3d:active .btn-3d-front {
@@ -1513,22 +1590,22 @@ footer p {
   }
 }
 
-  .floating-chat-btn {
-    display: none !important;
-  }
+.floating-chat-btn {
+  display: none !important;
+}
 
-  .floating-chat-window {
-    position: fixed;
-    bottom: 1.5rem;
-    left: 1rem !important;
-    right: 1rem !important;
-    width: auto;
-    max-width: calc(100vw - 2rem);
-    height: 78vh;
-    border-radius: 24px;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 240, 255, 0.4);
-    z-index: 10000;
-  }
+.floating-chat-window {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1rem !important;
+  right: 1rem !important;
+  width: auto;
+  max-width: calc(100vw - 2rem);
+  height: 78vh;
+  border-radius: 24px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 240, 255, 0.4);
+  z-index: 10000;
+}
 }
 
 @media (max-width: 480px) {
@@ -1633,14 +1710,22 @@ footer p {
 }
 
 @keyframes floatButton {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
 }
 
 @keyframes pulseNeonGlow {
   0% {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
   }
+
   100% {
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.85), 0 0 60px rgba(124, 106, 255, 0.5), inset 0 0 25px rgba(0, 240, 255, 0.4);
   }
@@ -1663,8 +1748,15 @@ footer p {
 }
 
 @keyframes bounceBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .floating-chat-icon {
@@ -1722,11 +1814,11 @@ footer p {
 /* ── POP-UP CHAT OVERLAY WINDOW ── */
 .floating-chat-window {
   position: fixed;
-  bottom: 6.8rem;
+  bottom: 1.8rem;
   right: 2rem;
   width: 380px;
   max-width: calc(100vw - 2.5rem);
-  height: 530px;
+  height: 430px;
   max-height: 80vh;
   background: rgba(8, 14, 28, 0.95);
   border: 1.5px solid rgba(0, 240, 255, 0.4);
@@ -1834,7 +1926,8 @@ footer p {
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
   background: rgba(0, 240, 255, 0.15);
   border-color: var(--accent);
   color: var(--accent);
@@ -1865,7 +1958,8 @@ footer p {
 .gallery-image-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 60%; /* 5:3 Aspect Ratio */
+  padding-top: 60%;
+  /* 5:3 Aspect Ratio */
   overflow: hidden;
 }
 
@@ -1994,7 +2088,8 @@ footer p {
   color: #fff;
 }
 
-.lightbox-prev, .lightbox-next {
+.lightbox-prev,
+.lightbox-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -2007,25 +2102,45 @@ footer p {
   transition: color 0.2s, transform 0.2s;
 }
 
-.lightbox-prev { left: 2rem; }
-.lightbox-next { right: 2rem; }
+.lightbox-prev {
+  left: 2rem;
+}
 
-.lightbox-prev:hover, .lightbox-next:hover {
+.lightbox-next {
+  right: 2rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
   color: var(--accent);
   transform: translateY(-50%) scale(1.1);
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
-  .lightbox-prev, .lightbox-next {
+
+  .lightbox-prev,
+  .lightbox-next {
     font-size: 2rem;
     padding: 0.5rem;
   }
-  .lightbox-prev { left: 0.5rem; }
-  .lightbox-next { right: 0.5rem; }
-}
 
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-next {
+    right: 0.5rem;
+  }
+}
