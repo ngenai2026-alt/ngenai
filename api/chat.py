@@ -52,7 +52,7 @@ Do NOT call the tool if you are missing their name, email, or phone. Ask them fo
             
             # Using mixtral-8x7b-32768 to ensure absolute stability and speed on Groq
             payload = {
-                "model": "mixtral-8x7b-32768",
+                "model": "openai/gpt-oss-20b",
                 "messages": full_messages,
                 "tools": tools,
                 "tool_choice": "auto"
@@ -63,7 +63,8 @@ Do NOT call the tool if you are missing their name, email, or phone. Ask them fo
                 data=json.dumps(payload).encode('utf-8'),
                 headers={
                     "Authorization": f"Bearer {groq_key}",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
                 },
                 method="POST"
             )
