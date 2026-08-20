@@ -465,10 +465,13 @@ h1 .highlight {
 }
 
 .chat-message .msg-bubble {
-  padding: 0.85rem 1.1rem;
-  font-size: 0.88rem;
-  line-height: 1.55;
+  padding: 0.85rem 1.15rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .bot-msg .msg-bubble {
@@ -476,16 +479,16 @@ h1 .highlight {
   border: 1px solid rgba(0, 240, 255, 0.3);
   color: var(--text);
   border-radius: 16px 16px 16px 3px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.82rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
 }
 
 .user-msg .msg-bubble {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #000;
-  font-weight: 700;
+  font-weight: 500;
   border-radius: 16px 16px 3px 16px;
-  font-family: inherit;
+  font-family: 'Outfit', sans-serif;
 }
 
 .chat-chips {
