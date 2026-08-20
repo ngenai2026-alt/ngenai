@@ -56,7 +56,7 @@ Do NOT call the tool if you are missing their name, email, or phone. Ask them fo
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.1-70b-versatile',
+        model: 'gpt-oss-120b',
         messages: fullMessages,
         tools: tools,
         tool_choice: 'auto'
