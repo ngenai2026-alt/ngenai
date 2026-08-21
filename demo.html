@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try AI for Your Business | NgenAI</title>
+  <meta name="description"
+    content="Experience a personalized AI demonstration for your business. See how AI can help you scale.">
+  <link rel="stylesheet" href="css/global.css?v=10">
+  <link rel="stylesheet" href="css/demo.css?v=10">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">N<span>gen</span>AI</a>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navMenu">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="process.html" onclick="closeMenu()">Process</a></li>
+      <li><a href="workshops.html" onclick="closeMenu()">Workshops</a></li>
+      <li><a href="contact.html" class="nav-cta" onclick="closeMenu()">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="demo-section">
+      <!-- FORM STATE -->
+      <div class="demo-container reveal" id="demoFormContainer">
+        <h2>Try AI for Your Business</h2>
+        <p id="demoFormSubtitle">Please provide your contact information to begin the personalized AI demonstration.</p>
+
+        <!-- STEP 1: CONTACT INFO -->
+        <form id="demoStep1" onsubmit="goToStep2(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" id="demoUserName" required placeholder="e.g. John Doe">
+            </div>
+            <div class="form-group">
+              <label>Email or Phone No.</label>
+              <input type="text" id="demoContactInfo" required placeholder="e.g. john@example.com or +91 9876543210">
+            </div>
+          </div>
+          <button type="submit" class="btn-primary"
+            style="width: 100%; margin-top: 1.5rem; text-align: center; justify-content: center;">Next Step →</button>
+        </form>
+
+        <!-- STEP 2: BUSINESS INFO (OPTIONAL) -->
+        <form id="demoStep2" onsubmit="startDemo(event)" style="display: none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Company / Bot Name (Optional)</label>
+              <input type="text" id="demoCompanyName" placeholder="e.g. Acme Corp">
+            </div>
+            <div class="form-group">
+              <label>Industry / Domain (Optional)</label>
+              <input type="text" id="demoDomain" placeholder="e.g. Real Estate, E-commerce">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 1rem;">
+            <label>About Your Company (Max 100 words) (Optional)</label>
+            <textarea id="demoAbout" rows="4"
+              placeholder="What are your core services? Who are your target customers? What challenges do you face?"
+              oninput="updateWordCount()"></textarea>
+            <div class="word-counter" id="wordCount">0 / 100 words</div>
+          </div>
+
+          <button type="submit" class="btn-primary"
+            style="width: 100%; margin-top: 1.5rem; text-align: center; justify-content: center;">Start My Personalized
+            AI Demo →</button>
+        </form>
+      </div>
+
+      <!-- CHAT STATE -->
+      <div class="demo-container chat-mode" id="demoChatContainer" style="display: none;">
+        <div class="demo-chat-header">
+          <h3>AI Consultant for <span id="displayCompanyName" style="color: var(--accent);">Your Business</span></h3>
+          <div class="message-counter">Messages: <span id="msgCount">0</span>/4</div>
+        </div>
+
+        <div class="demo-chat-body" id="demoChatBody">
+          <!-- Chat messages go here -->
+        </div>
+
+        <div class="demo-chat-chips" id="demoChatChips">
+          <button class="demo-chip-btn" onclick="sendDemoQuickPrompt('How can AI help my business?')">💡 How can AI help
+            my business?</button>
+          <button class="demo-chip-btn" onclick="sendDemoQuickPrompt('Give me 5 marketing ideas.')">📈 Give me 5
+            marketing ideas</button>
+          <button class="demo-chip-btn" onclick="sendDemoQuickPrompt('Who are my target customers?')">🎯 Who are my
+            target customers?</button>
+          <button class="demo-chip-btn" onclick="sendDemoQuickPrompt('What can I automate using AI?')">⚙️ What can I
+            automate using AI?</button>
+        </div>
+
+        <div class="demo-chat-input" id="demoChatInputContainer">
+          <input type="text" id="demoChatInput" placeholder="Ask about marketing, automation, sales..."
+            onkeypress="handleDemoKeyPress(event)">
+          <button class="demo-send-btn" onclick="sendDemoMessage()" aria-label="Send">
+            <svg viewBox="0 0 24 24">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="demoCtaContainer"
+          style="display: none; text-align: center; padding: 2rem 1rem 1rem; border-top: 1px solid rgba(0,240,255,0.2); margin-top: 1rem;">
+          <h3 style="margin-bottom: 1rem; color: #fff;">Want an AI solution built for your business?</h3>
+          <a href="contact.html" class="btn-primary" style="display: inline-block;">Talk to Our AI Team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+    <footer>
+    <div>
+      <a href="index.html" class="logo" style="font-size:1.1rem; margin-bottom:0.3rem; display:block;">N<span>gen</span>AI</a>
+      <p>© 2026 Next GenerationAI, India</p>
+      <p style="font-size:0.78rem; color:var(--muted); margin-top:0.3rem;">Hinjewadi Phase 1, Pune, Maharashtra, India</p>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/ngen.ai/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://x.com/" target="_blank" rel="noopener" class="social-icon" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('nav-open');
+      document.getElementById('navMenu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    function closeMenu() {
+      document.querySelector('nav').classList.remove('nav-open');
+      document.getElementById('navMenu').classList.remove('open');
+      document.querySelector('.hamburger').classList.remove('active');
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Word counter logic
+    function updateWordCount() {
+      const text = document.getElementById('demoAbout').value.trim();
+      const words = text ? text.split(/\s+/) : [];
+      const count = words.length;
+      const counterEl = document.getElementById('wordCount');
+
+      counterEl.textContent = `${count} / 100 words`;
+
+      if (count > 100) {
+        counterEl.style.color = '#ff4444';
+        // Truncate to 100 words
+        document.getElementById('demoAbout').value = words.slice(0, 100).join(" ");
+        counterEl.textContent = `100 / 100 words`;
+      } else {
+        counterEl.style.color = 'var(--muted)';
+      }
+    }
+
+    // Demo state
+    let demoContext = {};
+    let demoMessages = [];
+    let msgCount = 0;
+    const MAX_MESSAGES = 4;
+
+    function goToStep2(e) {
+      e.preventDefault();
+
+      const userName = document.getElementById('demoUserName').value.trim();
+      const contactInfo = document.getElementById('demoContactInfo').value.trim();
+
+      demoContext = {
+        user_name: userName,
+        contact: contactInfo
+      };
+
+      // Save lead asynchronously immediately after step 1
+      fetch('/api/save_lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(demoContext)
+      }).catch(err => console.log('Lead capture error', err));
+
+      document.getElementById('demoStep1').style.display = 'none';
+      document.getElementById('demoStep2').style.display = 'block';
+      document.getElementById('demoFormSubtitle').textContent = "Tell us a bit about your business. This helps the AI act as your dedicated consultant. You can skip this if you want to explore general AI capabilities.";
+    }
+
+    async function startDemo(e, skipped = false) {
+      if (e) e.preventDefault();
+
+      let compName = document.getElementById('demoCompanyName').value.trim();
+      let compDomain = document.getElementById('demoDomain').value.trim();
+      let compAbout = document.getElementById('demoAbout').value.trim();
+
+      if (skipped) {
+        compName = "";
+        compDomain = "";
+        compAbout = "";
+      }
+
+      demoContext.company_name = compName;
+      demoContext.domain = compDomain;
+      demoContext.about = compAbout;
+
+      // Switch UI
+      document.getElementById('demoFormContainer').style.display = 'none';
+      const chatContainer = document.getElementById('demoChatContainer');
+      chatContainer.style.display = 'flex';
+      setTimeout(() => chatContainer.classList.add('visible', 'reveal'), 10);
+
+      const displayName = demoContext.company_name || demoContext.user_name || "Your Business";
+      document.getElementById('displayCompanyName').textContent = displayName;
+
+      // Initial bot message
+      const chatBody = document.getElementById('demoChatBody');
+      const botDiv = document.createElement('div');
+      botDiv.className = 'demo-msg demo-bot-msg';
+
+      let initialMsg = `Hello ${escapeHTML(demoContext.user_name)}! `;
+      if (demoContext.company_name || demoContext.domain) {
+        initialMsg += `I've analyzed your profile for <b>${escapeHTML(demoContext.company_name || "your company")}</b>. How can I help you accelerate your growth in the ${escapeHTML(demoContext.domain || "industry")} space today?`;
+      } else {
+        initialMsg += `How can I help you with AI solutions today? I can provide domain-specific advice if you ask me!`;
+      }
+
+      botDiv.innerHTML = `<div class="demo-msg-bubble"><b>[AI Consultant]</b><br>${initialMsg}</div>`;
+      chatBody.appendChild(botDiv);
+    }
+
+    function sendDemoQuickPrompt(text) {
+      document.getElementById('demoChatInput').value = text;
+      sendDemoMessage();
+    }
+
+    function handleDemoKeyPress(e) {
+      if (e.key === 'Enter') sendDemoMessage();
+    }
+
+    async function sendDemoMessage() {
+      if (msgCount >= MAX_MESSAGES) return;
+
+      const input = document.getElementById('demoChatInput');
+      const query = input.value.trim();
+      if (!query) return;
+
+      const chatBody = document.getElementById('demoChatBody');
+
+      // Hide chips after first message
+      const chips = document.getElementById('demoChatChips');
+      if (chips) chips.style.display = 'none';
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'demo-msg demo-user-msg';
+      userDiv.innerHTML = `<div class="demo-msg-bubble">${escapeHTML(query)}</div>`;
+      chatBody.appendChild(userDiv);
+
+      demoMessages.push({ role: 'user', content: query });
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      msgCount++;
+      document.getElementById('msgCount').textContent = msgCount;
+
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'demo-msg demo-bot-msg';
+      typingDiv.innerHTML = `<div class="demo-msg-bubble" style="font-style:italic; color:var(--muted);">Analyzing...</div>`;
+      typingDiv.id = 'demoTyping';
+      chatBody.appendChild(typingDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      try {
+        const res = await fetch('/api/demo_chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: demoMessages,
+            company_name: demoContext.company_name,
+            domain: demoContext.domain,
+            about: demoContext.about
+          })
+        });
+
+        const data = await res.json();
+        document.getElementById('demoTyping').remove();
+
+        if (data.error) throw new Error(data.error);
+
+        const botReply = data.message.content;
+        demoMessages.push(data.message);
+
+        const botDiv = document.createElement('div');
+        botDiv.className = 'demo-msg demo-bot-msg';
+        botDiv.innerHTML = `<div class="demo-msg-bubble"><b>[AI Consultant]</b><br>${parseMarkdown(botReply)}</div>`;
+        chatBody.appendChild(botDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+      } catch (err) {
+        document.getElementById('demoTyping').remove();
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'demo-msg demo-bot-msg';
+        errorDiv.innerHTML = `<div class="demo-msg-bubble" style="color:#ff4444;">Error connecting to AI backend.</div>`;
+        chatBody.appendChild(errorDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      checkLimit();
+    }
+
+    function checkLimit() {
+      if (msgCount >= MAX_MESSAGES) {
+        document.getElementById('demoChatInputContainer').style.display = 'none';
+        document.getElementById('demoCtaContainer').style.display = 'block';
+
+        const chatBody = document.getElementById('demoChatBody');
+        const endDiv = document.createElement('div');
+        endDiv.className = 'demo-msg demo-bot-msg';
+        endDiv.innerHTML = `<div class="demo-msg-bubble" style="background: rgba(124, 106, 255, 0.15); border-color: #7c6aff;"><b>Demo Session Complete</b><br>You've reached the end of this demo session. To see how NgenAI can build a dedicated AI solution for your business, please contact our team!</div>`;
+        chatBody.appendChild(endDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g,
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+    }
+
+    function parseMarkdown(text) {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+        .replace(/\*(.*?)\*/g, '<i>$1</i>')
+        .replace(/\n- (.*?)(?=\n|$)/g, '<br>• $1')
+        .replace(/\n/g, '<br>');
+    }
+  </script>
+  <script src="js/kani.js"></script>
+</body>
+
+</html>

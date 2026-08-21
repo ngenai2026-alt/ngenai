@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NgenAI – Generative AI Solutions | RAG Pipelines & AI Chatbots</title>
   <meta name="description" content="NgenAI builds custom AI solutions — RAG pipelines, AI chatbots, Agentic automation & LLM integrations. Live in 4–6 weeks. Based in Pune, India.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/global.css?v=10">
+  <link rel="stylesheet" href="css/index.css?v=10">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBX1PGX7KX"></script>
   <script>
@@ -46,7 +47,7 @@
           <h1>Build Smarter with<br><span class="highlight">Generative AI</span></h1>
           <p class="hero-sub">Custom AI solutions — Autonomous Agentic AI Automation, Multi-Agent Workflows, RAG Pipelines, and Enterprise Tool Integrations — engineered for production.</p>
           <div class="hero-actions">
-            <a href="contact.html" class="btn-primary">Start a Project →</a>
+            <a href="demo.html" class="btn-primary">Try AI for Your Business →</a>
             <button onclick="toggleKaniChat()" class="btn-ai-assistant-hero-3d" title="Ask Kani AI">
               <span class="btn-3d-shadow"></span>
               <span class="btn-3d-edge"></span>
@@ -106,19 +107,11 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
+    <footer>
     <div>
       <a href="index.html" class="logo" style="font-size:1.1rem; margin-bottom:0.3rem; display:block;">N<span>gen</span>AI</a>
       <p>© 2026 Next GenerationAI, India</p>
       <p style="font-size:0.78rem; color:var(--muted); margin-top:0.3rem;">Hinjewadi Phase 1, Pune, Maharashtra, India</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="process.html">Process</a>
-      <a href="workshops.html">Workshops</a>
-      <a href="contact.html">Contact</a>
     </div>
     <div class="social-icons">
       <a href="https://www.instagram.com/ngen.ai/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
@@ -133,16 +126,7 @@
     </div>
   </footer>
 
-  <!-- FLOATING CHATBOT BUTTON (DESKTOP) -->
-  <div class="floating-chat-btn" id="floatingChatWidget" onclick="toggleKaniChat()" title="Kani AI Assistant (Coming Soon)">
-    <div class="floating-chat-icon">
-      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
-    </div>
-    <div class="floating-chat-text">
-      <span class="floating-chat-title">Kani AI Assistant</span>
-      <span class="floating-chat-status" style="color:#00c97a;">● Online</span>
-    </div>
-  </div>
+  
 
   <!-- POP-UP FLOATING CHAT OVERLAY WINDOW -->
   <div class="floating-chat-window" id="floatingChatWindow">
@@ -197,17 +181,7 @@
       hamburger.classList.remove('active');
     }
 
-    // Toggle Floating Kani Chat Modal
-    function toggleKaniChat() {
-      const win = document.getElementById('floatingChatWindow');
-      win.classList.toggle('active');
-      if (win.classList.contains('active')) {
-        setTimeout(() => {
-          const input = document.getElementById('popupChatInput');
-          if (input) input.focus();
-        }, 100);
-      }
-    }
+    
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -313,5 +287,6 @@
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
     }
   </script>
+  <script src="js/kani.js"></script>
 </body>
 </html>

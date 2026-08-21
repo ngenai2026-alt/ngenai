@@ -34,18 +34,16 @@ class handler(BaseHTTPRequestHandler):
             tools = [{
                 "type": "function",
                 "function": {
-                    "name": "book_appointment",
-                    "description": "DO NOT call this tool until the user has explicitly provided their name, email, phone number, and project description, and agreed to book.",
+                    "name": "save_contact_lead",
+                    "description": "DO NOT call this tool until the user has explicitly provided their name, email, and work/project description, and agreed to contact us.",
                     "parameters": {
                         "type": "object",
                         "properties": {
                             "name": {"type": "string", "description": "The user full name"},
                             "email": {"type": "string", "description": "The user email address"},
-                            "phone": {"type": "string", "description": "The user phone number"},
-                            "preferred_time": {"type": "string", "description": "Preferred time or day for the appointment"},
-                            "message": {"type": "string", "description": "A brief description of their project or requirement"}
+                            "work": {"type": "string", "description": "A brief description of their work, company, or requirement"}
                         },
-                        "required": ["name", "email", "phone", "preferred_time", "message"]
+                        "required": ["name", "email", "work"]
                     }
                 }
             }]
@@ -77,7 +75,7 @@ class handler(BaseHTTPRequestHandler):
             
             if tool_calls and len(tool_calls) > 0:
                 tool_call = tool_calls[0]
-                if tool_call['function']['name'] == 'book_appointment':
+                if tool_call['function']['name'] in ['book_appointment', 'save_contact_lead']:
                     args = json.loads(tool_call['function']['arguments'])
                     
                     email_address = args.get("email", "")
@@ -96,12 +94,12 @@ class handler(BaseHTTPRequestHandler):
                     
                     sheet_data = {
                         "name": args.get("name", ""),
-                        "enquiry_type": "Company",
+                        "enquiry_type": "Kani AI Chatbot Lead",
                         "company": "N/A",
                         "email": email_address,
-                        "phone": args.get("phone", ""),
-                        "service": "AI Chatbot Booking",
-                        "message": f"[{args.get('preferred_time', 'Anytime')}] " + args.get("message", "")
+                        "phone": args.get("phone", "N/A"),
+                        "service": "AI Chatbot Contact",
+                        "message": args.get("work", args.get("message", ""))
                     }
                     
                     try:
@@ -117,7 +115,7 @@ class handler(BaseHTTPRequestHandler):
                         
                     res_message = {
                         "role": "assistant",
-                        "content": f"Thank you, {args.get('name', 'there')}! I have successfully booked your appointment and our team will contact you shortly."
+                        "content": f"Thank you, {args.get('name', 'there')}! I have successfully saved your details. Our team will review your requirements and reach out to you at {email_address} shortly."
                     }
                     
                     self.send_response(200)

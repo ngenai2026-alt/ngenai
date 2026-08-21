@@ -1,0 +1,296 @@
+/* ── JARVIS HUD FUTURISTIC MASCOT & CHAT CARD ── */
+.jarvis-hud-card {
+  background: rgba(8, 14, 28, 0.88);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(24px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: floatCard 6s ease-in-out infinite, fadeUp 0.6s 0.3s ease both;
+  position: relative;
+}
+
+@keyframes floatCard {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.jarvis-hud-container {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  margin: 1.2rem auto 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer Ring 1 - Segmented Cyan Arc */
+.jarvis-ring.ring-outer-1 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 240, 255, 0.75);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  animation: rotateClockwise 14s linear infinite;
+}
+
+/* Outer Ring 2 - Segmented Tech Brackets */
+.jarvis-ring.ring-outer-2 {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #00f0ff;
+  border-bottom-color: #7c6aff;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  animation: rotateCounterClockwise 8s linear infinite;
+}
+
+/* Mid Ring - Ticks & Scale */
+.jarvis-ring.ring-mid-ticks {
+  position: absolute;
+  inset: 26px;
+  border-radius: 50%;
+  border: 3px dotted rgba(0, 240, 255, 0.5);
+  animation: rotateClockwise 20s linear infinite;
+}
+
+/* Inner Arc - Glowing Segment */
+.jarvis-ring.ring-inner-arc {
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-left-color: #00f0ff;
+  border-right-color: #00f0ff;
+  filter: drop-shadow(0 0 10px #00f0ff);
+  animation: rotateCounterClockwise 5s linear infinite;
+}
+
+/* Pulsing Glow Ring */
+.jarvis-ring.ring-pulse-glow {
+  position: absolute;
+  inset: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, transparent 70%);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  animation: jarvisPulse 2.5s ease-in-out infinite alternate;
+}
+
+/* Center HUD Core */
+.jarvis-core {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.jarvis-core-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.22em;
+  color: #00f0ff;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.9), 0 0 25px rgba(0, 240, 255, 0.5);
+  animation: coreGlow 2s ease-in-out infinite alternate;
+}
+
+.jarvis-core-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: #7c6aff;
+  margin-top: 2px;
+}
+
+/* Sound Wave inside JARVIS Core */
+.jarvis-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 16px;
+  margin-top: 6px;
+}
+
+.jarvis-wave span {
+  width: 3px;
+  height: 100%;
+  background: #00f0ff;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #00f0ff;
+  animation: waveBar 1s ease-in-out infinite alternate;
+}
+
+.jarvis-wave span:nth-child(1) {
+  animation-delay: 0.1s;
+  height: 35%;
+}
+
+.jarvis-wave span:nth-child(2) {
+  animation-delay: 0.3s;
+  height: 95%;
+}
+
+.jarvis-wave span:nth-child(3) {
+  animation-delay: 0.15s;
+  height: 60%;
+}
+
+.jarvis-wave span:nth-child(4) {
+  animation-delay: 0.4s;
+  height: 85%;
+}
+
+.jarvis-wave span:nth-child(5) {
+  animation-delay: 0.25s;
+  height: 45%;
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCounterClockwise {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jarvisPulse {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  }
+
+  100% {
+    transform: scale(1.04);
+    opacity: 1;
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);
+  }
+}
+
+@keyframes coreGlow {
+  0% {
+    filter: drop-shadow(0 0 8px #00f0ff);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 20px #00f0ff) drop-shadow(0 0 35px #7c6aff);
+  }
+}
+
+.jarvis-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.4rem;
+  background: rgba(0, 240, 255, 0.05);
+  border-top: 1px solid rgba(0, 240, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.jarvis-status-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.08em;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes waveBar {
+  0% {
+    transform: scaleY(0.3);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--accent));
+  }
+}
+
+
+
+
+/* ── TICKER ── */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ticker {
+  display: flex;
+  gap: 4rem;
+  animation: ticker 25s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.ticker span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ticker span b {
+  color: var(--accent);
+  font-weight: 400;
+  margin-right: 0.5rem;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
